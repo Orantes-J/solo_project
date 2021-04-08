@@ -12,6 +12,14 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+# if secret key outside of settings.py, pip install django-environ, and then you need 
+# lines 17-20 and then refer to line 31 also refer to .env file that is in the same level as settings.py
+import environ
+env = environ.Env()
+# reading .env file
+environ.Env.read_env()
+
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +28,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['ITADORI_SENIN']
+SECRET_KEY = env("SECRET_KEY")
+# SECRET_KEY = '!5ee2#in@cy0_ituz#yqre!bdvuu_()iq!e06fs_ncs!nl+q9g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
