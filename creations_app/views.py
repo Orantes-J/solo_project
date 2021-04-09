@@ -1,6 +1,6 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, redirect
 from .models import *
 
 # Create your views here.
 def index(request):
-    return HttpResponse('Hello Juan')
+    return render(request, "login.html")

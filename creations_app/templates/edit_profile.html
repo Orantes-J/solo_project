@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+    <h2>you are now viewing the edit page</h2>
+    <a>Back</a>
+    <div class="edit-form">
+        <div class="profile-pic">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label for="profile_pic">Update Your Profile Picture:</Picture></label>
+                <input type="file" name="profile_pic" id="profile_pic">
+            </form>
+        </div>
+        <div class="user-info">
+            <div class="field">
+                <label for="username">UserName:</label>
+                <input type="text" name="username">
+            </div>
+            <label class="email-push" for="email">Email:</label>
+            <div>
+                <label class="email-push" for="email">Email:</label>
+                <input type="text" name="email">
+            </div>
+            <div>
+                <button type="submit">Save Changes</button>
+            </div>
+        </div>
+    </div>
+    <script src='main.js'></script>
+</body>
+</html>
