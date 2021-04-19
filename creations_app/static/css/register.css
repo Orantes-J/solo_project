@@ -1,0 +1,41 @@
+*{
+    font-family: cursive;
+}
+body{
+    background: url('/static/images/register_back.jpg') no-repeat center ;
+    background-color: rgb(208, 255, 253);
+}
+.register-form{
+    display: flex;
+    justify-content: center;
+    margin: 50px  0;
+}
+h2{
+    display: flex;
+    justify-content: center;
+}
+video{
+    margin: 100px 550px 0 550px;
+    border-radius: 130px;
+    height: 100px;
+    width: 100px;
+}
+input[type="text"]{
+    text-align: center;
+}
+label.confirm-password{
+    margin-left: 25px;
+}
+button{
+    margin-left: 48px;
+}
+h3{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 150px;
+    font-family: cursive;
+}
+a{
+    text-decoration: none;
+    color: whitesmoke;
+}

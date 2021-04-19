@@ -1,0 +1,39 @@
+*{
+    font-family: cursive;
+    font-size: large;
+}
+body{
+    background: url('/static/images/edit-background.jpg') no-repeat center;
+}
+.edit-form{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+img.p-pic{
+    height: 200px;
+    border-radius: 10pc;
+}
+.profile-pic-button{
+    margin-left: 40px;
+}
+button{
+    margin-top: 20px;
+    margin-left: 70px;
+    box-shadow: gray 10px 10px;
+    border-radius: 5px;
+}
+input{
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+input[type="text"] {
+    text-align: center;
+}
+.input-field-margin{
+    margin-top: 50px;
+}
+h2{
+    display: flex;
+    justify-content: center;
+}

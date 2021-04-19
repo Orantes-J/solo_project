@@ -5,33 +5,37 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/edit_profile.css' %}">
 </head>
 <body>
-    <h2>you are now viewing the edit page</h2>
-    <a>Back</a>
+    <h2>Hey "{{profile.username}}" Edit Your Info Here </h2>
+    <a class="img-links" href="/home"><img class="home-button" src="{% static 'images\new-home-button.png' %}" width="50" height="50"></a>
     <div class="edit-form">
         <div class="profile-pic">
-            <form action="" method="POST">
+            <form action="/pic_update" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <label for="profile_pic">Update Your Profile Picture:</Picture></label>
-                <input type="file" name="profile_pic" id="profile_pic">
+                <img class="p-pic" src="{{profile.profile_pic.url}}" alt="{{ user.username }}" width="200" height="300">
+                <input type="file" name="profile_pic" id="profile_pic" value="{{user.profile_pic}}">
+                <div>
+                    <button class="profile-pic-button" type="submit">Save Changes</button>
+                </div>
             </form>
         </div>
-        <div class="user-info">
-            <div class="field">
-                <label for="username">UserName:</label>
-                <input type="text" name="username">
+        <form action="/edit" method="POST">
+            {% csrf_token %}
+            <div class="user-info">
+                <div class="field">
+                    <input class="input-field-margin" type="text" min="2" required name="username" value="{{profile.username}}" >
+                </div>
+                <div>
+                    <input type="text" name="email" required  value="{{profile.email}}" >
+                </div>
+                <div>
+                    <button type="submit">Save Changes</button>
+                </div>
             </div>
-            <label class="email-push" for="email">Email:</label>
-            <div>
-                <label class="email-push" for="email">Email:</label>
-                <input type="text" name="email">
-            </div>
-            <div>
-                <button type="submit">Save Changes</button>
-            </div>
-        </div>
+        </form>
     </div>
     <script src='main.js'></script>
 </body>

@@ -6,16 +6,20 @@
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/saved_post.css' %}">
 </head>
 <body>
-    <h2>you are now viewing your saved art</h2>
+    <ul>
+        <li>Saved Post</li>
+        <li class="img-links" ><a href="/home"><img class="home-button"  src="{% static 'images\new-home-button.png' %}" width="50" height="50"></a></li>
+    </ul>
     <a><img></a>
     <div class="saved-post">
-        <ul>
-            <!-- forloop for saved art -->
-            <li></li>
-        </ul>
+        {% for character in user.save_post.all %}
+        <img src="{{character.pic.url}}" alt="pic" width="259" height="262">
+        {% endfor %}
+
     </div>
 </body>
 </html>

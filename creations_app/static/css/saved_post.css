@@ -1,0 +1,16 @@
+*{
+    font-family: cursive;
+    margin-left: 10px;
+}
+ul{
+    list-style-type: none;
+    display: inline;
+}
+li{
+display: flex;
+justify-content: center;
+}
+li.img-links{
+    margin-left: 1100px;
+    display: inline-block;
+}

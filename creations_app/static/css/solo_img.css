@@ -1,0 +1,12 @@
+body{
+    background: url('/static/images/info_background.jpg') no-repeat center ;
+}
+ul{
+    display: inline-block;
+}
+*{
+    text-decoration: none;
+    color: rgb(107, 38, 38);
+    font-family: cursive;
+    font-size: x-large;
+}

@@ -5,28 +5,22 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/solo_img.css' %}">
 </head>
 <body>
     <h2>I am now viewing the solo image of creator</h2>
     <div class="info">
         <div class="character-info">
-            <img>
+            <img src="{{char.pic.url}}" width="259" height="262">
             <ul>
-                <!-- forloop for character info -->
-                <li>character dob</li>
-                <li>characters powers</li>
+                <li>Name: {{char.name}}</li>
+                <li>DOB: {{char.date_of_birth}}</li>
+                <li>Powers: {{char.powers}}</li>
             </ul>
         </div>
-        <div class="a-links">
-            <ul>
-                <li><a>Back</a></li>
-                <li><a></a><img></li>
-            </ul>
-        </div>
-    </div>
     <div class="character-bio">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt voluptas suscipit labore explicabo autem nostrum alias maiores obcaecati tenetur temporibus, officiis iste eveniet quos ratione accusamus minus. Exercitationem error qui voluptatem voluptates, ipsum a veniam unde impedit veritatis ad nulla!</p>
+        <li>Bio: {{char.bio}}</li>
     </div>
     <script src='main.js'></script>
 </body>

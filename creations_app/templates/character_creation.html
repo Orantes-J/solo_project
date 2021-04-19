@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/character_creation.css' %}">
+</head>
+<body>
+    <a href="/home"><img class="home-button" src="{% static 'images\new-home-button.png' %}" width="50" height="50"></a>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if messages.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h2>Character List</h2>
+    <div class="char-list">
+        {% for i in user.created_characters.all %}
+            <p class="user-created-char">{{i.name}}</p>
+        {% endfor %}
+    </div>
+    <h3>{{user.username}} create a characters!</h3>
+    <div class="form">
+        <form action="/create_char" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="field">
+                <input type="text" name="name" value="Character's Name">
+            </div>
+            <div class="field">
+                <input type="date" name="date_of_birth" value="00/00/0000">
+            </div>
+            <div class="field">
+                <input type="text" name="powers" value="Powers:">
+            </div>
+            <div class="field">
+                <input type="text" name="bio" value="Bio:">
+            </div>
+            <div class="field">
+                <input type="file" name="pic">
+            </div>
+            <div>
+                <button type="submit">Create This Character</button>
+            </div>
+        </form>
+    </div>
+    <script src='main.js'></script>
+</body>
+</html>

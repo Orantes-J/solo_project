@@ -5,66 +5,20 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static %}
 </head>
 <body>
-    <div class="entire">
-        {% if messages %}
-            <ul class="messages">
-                {% for message in messages %}
-                <li {% if messages.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    <div>
-        <h2>Register</h2>
-        <form action="/register" method="POST">
-        {% csrf_token %}
-        <div class="field">
-            <label for="first_name">First Name:</label>
-            <input type="text" name="first_name">
-        </div>
-        <div class="field">
-            <label for="last_name">Last Name:</label>
-            <input type="text" name="last_name">
-        </div>
-        <div class="field">
-            <label for="username">UserName:</label>
-            <input type="text" name="username">
-        </div>
-        <div class="field">
-            <label class="email-push" for="email">Email:</label>
-            <div>
-                <input type="text" name="email">
-            </div>
-        </div>
-        <div class="field">
-            <label class="password-push" for="password">Password:</label>
-            <input type="text" name="password">
-        </div>
-        <div class="field">
-            <label for="confirm_pw">Confirm PW:</label>
-            <input type="password" name="confirm_password" id="confirm_password">
-        </div>
-        <div class="field">
-            <label for="profile_pic">Upload Your Profile Picture:</Picture></label>
-            <input type="file" name="profile_pic" id="profile_pic">
-        </div>
-        <div>
-            <button type="submit">Register</button>
-        </div>
-        </form>
-    </div>
+    
     <div>
         <h2>Login</h2>
-        <form action="login" method="POST">
+        <form action="/login" method="POST">
             {% csrf_token %}
             <div class="field" >
                 <label class="email-push" for="username">UserName:</label>
                 <input type="username" name="username">
-            </div>
             <div class="field" >
                 <label for="password">Password:</label>
-                <input type="password" name="password">
+                <input type="password" name="password" value="Password Here" >
             </div>
             <div>
                 <button type="submit">login</button>

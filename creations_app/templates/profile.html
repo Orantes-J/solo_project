@@ -5,35 +5,42 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 </head>
 <body>
-    <h2>This is my profile</h2>
-    <div class="links">
-        <div class="edit-link">
-            <p><a>Edit Profile</p></a>
-        </div>
-        <div class="general-links">
-            <ul>
-                <li>Logout</li>
-                <li>Home</li>
-                <li>View Saved</li>
-            </ul>
-        </div>
+    <div class="general-links">
+        <ul class="links">
+            <li class="li-links"><a class="img-links" href="/profile/{{profile.id}}/edit"><img class="home-button"  src="{% static 'images\edit-button.png' %}" width="50" height="50"></a></li>
+            <li class="li-links"><a class="img-links" href="/logout"><img src="{% static 'images\logout-icon.png' %}" width="50" height="50"></a></li>
+            <li class="li-links"><a class="img-links" href="/home"><img class="home-button"  src="{% static 'images\new-home-button.png' %}" width="50" height="50"></a></li>
+            <li class="li-links"><a class="img-links" href="/saved_art"><img src="{% static 'images\save_button.png' %}" width="60" height="70"></a></li>
+        </ul>
     </div>
     <div class="profile-pic">
-        <img>
+        <img class="p-pic"  src="{{profile.profile_pic.url}}" + {{user.profile_pic}} alt="{{ user.username }}" width="300" height="400">{{ user.profile_pic.url }}</img>
     </div>
-    <div class="creator-username">
-        <h3></h3>
-    </div>
-    <div class="logged-in-user-art">
-        <ul>
-            <!-- forloop of creator art -->
-            <li></li>
-        </ul>
-        <img>
-    </div>
+    <h1 class="user-name" >"{{ profile.username }}"</h1>
+    <h3>My Created Characters</h3>
+    <div class="logged-in-user-art"> 
+        {% for i in profile.created_characters.all %}
+            <div class="characters">
+                <img class="char-pic" src="{{i.pic.url}}" alt="{{i.name}}" width="250" height="300">
+                <ul>
+                    <li>{{ i.name }}</li>
+                    <br>
+                    <li>{{ i.powers }}</li>
+                    <br>
+                    <li class="bio" >{{ i.bio }}</li>
+                    {% if i.creator.id == request.session.user_id %}
+                    <form method="POST" action="/delete/{{i.id}}">
+                        {% csrf_token %}
+                        <button type="submit">Delete This Character</button>
+                    </form>
+                {% endif %}
+                </ul>
+            {% endfor %}
+        </div>
     <script src='main.js'></script>
 </body>
 </html>

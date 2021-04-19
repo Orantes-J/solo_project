@@ -5,36 +5,51 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
-    <h2>you are now on logged in page</h2>
     <div>
-        <ul>
-            <li>Logout</li>
-            <li>My Profile</li>
+        <h2 class="user-name">"{{user.username}}"</h2>
+        <ul class="nav-links">
+            <li><a href="/logout"><img src="{% static 'images\logout-icon.png' %}" width="50" height="50"></a></li>
+            <li><a href="/user_profile/{{user.id}}"><img class="p-pic" src="{{user.profile_pic.url}}" alt="{{ user.username }}" width="50" height="50"></a></li>
+            <li><a href="/creation"><img class="home-button"  src="{% static 'images\create_char.png' %}" width="50" height="50"></a></li>
         </ul>
     </div>
-    <div class="info">
-        <div class="character-info">
-            <img>
-            <ul>
-                <!-- forloop for character info -->
-                <li></li>
-            </ul>
-        </div>
-        <div class="save-button">
-            <img>
-        </div>
+    <div class="info-slides">
+        <div class="mySlides fade">
+            {% for i in posts  %}
+            <div class="group-info">
+                <img class="shadow" src="{{i.pic.url}}" alt="{{i.name}}" width="350" height="375" >
+                <ul>
+                    <div class="info-background-img" >
+                        <li>My name is: {{i.name}}</li>
+                        <br>
+                        <li>My Powers are: {{i.powers}}</li>
+                        <br>
+                        <li class="bio">Bio: {{i.bio}}</li>
+                        <li>DOB: {{i.date_of_birth}}</li>
+                        <br>
+                        <li><a>Made By:<a href= "/creator_profile/{{i.creator.id}}">{{i.creator.first_name}}</a></li>
+                    </div>
+                    {% if i  in user.save_post.all %}
+                    <ul class="icon-list">
+                        <li><a class="icons" href="/unsave_art/{{i.id}}"><img src="{% static 'images\unsave_icon.png' %}" width="50" height="50"></a></li>
+                        {% else %}
+                        <li><a class="icons" href="/save_art/{{i.id}}"><img src="{% static 'images\save_button.png' %}" width="50" height="50"></a></li>
+                        {% endif %}
+                        {% endfor %}
+                        {% if posts.has_previous %}
+                        <a class="unkown" href="?page=1"><< Oldest Post</a>
+                        <a href="?page={{ posts.previous_page_number }}"><img class="rotate-this" src="{% static 'images\arrow.png' %}" width="50" height="50"></a>
+                        {% endif %}
+                        {% if posts.has_next %}
+                        <a href="?page={{ posts.next_page_number}}"><img src="{% static 'images\arrow.png' %}" width="50" height="50"></a>
+                        <a class="unkown" href="?page={{ posts.paginator.num_pages }}">Newest Post >>></a>
+                        {% endif %}
+                    </ul>
+                </ul>
     </div>
-    <div class="info-2">
-        <div class="character-bio">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus eum debitis quaerat commodi consectetur aspernatur ratione enim magnam omnis fuga excepturi corrupti sed illo corporis quisquam quos, nam voluptates aliquam!</p>
-        </div>
-        <div class="next-character">
-            <img>
-        </div>
-    </div>
-    <script src='main.js'></script>
 </body>
 </html>

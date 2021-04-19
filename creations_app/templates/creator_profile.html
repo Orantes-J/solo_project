@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+<body>
+    <p class="email">{{profile.email}}</p>
+    <div class="general-links">
+        <ul class="links">
+            <li class="li-links" ><a href="/home"><img class="home-button" src="{% static 'images\new-home-button.png' %}" width="50" height="50"></a></li>
+        </ul>
+    </div>
+    <div class="profile-pic">
+        <img class="p-pic" src="{{profile.profile_pic.url}}" + {{user.profile_pic}} alt="{{ user.username }}" width="300" height="400">{{ user.profile_pic.url }}</img>
+    </div>
+    <li><h3 class="move-me">{{profile.email}}</button></h3>
+    <h1 class="user-name" >"{{ profile.username }}"</h1>
+    {% for i in profile.created_characters.all %}
+    <a href="/created_character/{{profile.id}}"><img src="{{i.pic.url}}" alt="{{i.name}}" width="230" height="300"></a>
+    <ul>
+        <li>{{ i.name }}</li>
+        <br>
+        <li>{{ i.powers }}</li>
+        <br>
+        <li class="bio" >{{ i.bio }}</li>
+        {% if i.creator.id == request.session.user_id %}
+            <form method="POST" action="/delete/{{i.id}}">
+                {% csrf_token %}
+                <button type="submit">Delete This Character</button>
+            </form>
+        {% endif %}
+    </ul>
+    {% endfor %}
+    <script src="{% static 'js/creator_profile.js' %}"></script>
+</body>
+</html>

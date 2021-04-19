@@ -1,0 +1,65 @@
+*{
+    box-sizing: border-box;
+    font-family: cursive;
+}
+body{
+    background-image: url('/static/images/korra_city.png') ;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 600px;
+}
+a{
+    text-decoration: none;
+}
+a.unkown{
+    text-decoration: none;
+    color: rgb(248, 240, 227);
+    border-radius: 5px;
+    box-shadow: rgb(11, 12, 11) 5px 5px;
+}
+ul{
+    display: inline-block;
+}
+li{
+    color: brown;
+    list-style: none;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+.bio{
+    width: 400px;
+    height: 100px;
+}
+.p-pic{
+    border-radius: 25px;
+    box-shadow: rgb(119, 113, 113) 5px 5px;
+}
+.myslides{
+    display: inline;
+}
+.user-name{
+    font-family: 'Brush Script MT', cursive;
+    font-size: x-large;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 260px;
+}
+img{
+    border-radius: 10px;
+    margin-left: 10px;
+}
+img.shadow{
+    box-shadow: rgb(207, 129, 129) 10px 10px;
+}
+.icon-list{
+    padding: 0px;
+}
+.info-background-img{
+    border-radius: 5px;
+    background: url('/static/images/main_info_background.jpg') no-repeat center ;
+}
+img.rotate-this{
+    transform: rotate(180deg);
+}

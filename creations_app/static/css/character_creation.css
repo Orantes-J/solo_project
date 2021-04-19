@@ -1,0 +1,45 @@
+*{
+    font-family: cursive;
+}
+body{
+    background: url('/static/images/create_char_back.png') no-repeat center ;
+}
+.form{
+    display: flex;
+    justify-content: center;
+    margin: 120px 100px 0 100px;
+    margin-right: 25px;
+}
+img{
+    background-color: rgb(190, 181, 199);
+    border-radius: 25px;
+}
+h3{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    margin: 0px;
+    margin-top: -120px;
+}
+.user-created-char{
+    display: flex;
+    justify-content: flex-end;
+    color: rgb(192, 120, 120);
+}
+.char-list{
+    height: 100px;
+    overflow-y: scroll;
+}
+.char-list::-webkit-scrollbar {
+    display: none;
+}
+.char-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}
+h2{
+    display: flex;
+    justify-content: flex-end;
+    text-decoration: underline;
+    color: cornflowerblue;
+}

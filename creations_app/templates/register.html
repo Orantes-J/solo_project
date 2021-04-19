@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Register</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <div class="entire">
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li {% if messages.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <video width="200" height="180" controls autoplay loop src="{% static 'videos\register-vid.mp4' %}"></video>
+        <div class="register-form" >
+            <form action="/register" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+            <div class="field">
+                <input type="text" name="first_name" value="First Name">
+            </div>
+            <div class="field">
+                <input type="text" name="last_name" value="Last Name">
+            </div>
+            <div class="field">
+                <input type="text" name="username" value="Username" >
+            </div>
+            <div class="field">
+                    <input type="text" name="email" value="name@gmail.com">
+            </div>
+            <div class="field">
+                <input type="text" name="password" value="Password" >
+            </div>
+            <div class="field">
+                <label class="confirm-password" for="confirm_password">Confirm Password</label>
+                <br>
+                <input type="password" name="confirm_password" id="confirm_password">
+            </div>
+            <div class="field">
+                <input type="file" name="profile_pic" >
+            </div>
+            <div>
+                <button type="submit">Register</button>
+            </div>
+            </form>
+        </div>
+        <h3><a href="/" >Already Have an Account?</a></h3>
+</body>
+</html>

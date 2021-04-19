@@ -1,0 +1,95 @@
+*{
+    font-family: cursive;
+}
+body{
+    background: url('/static/images/abc.jpg')
+}
+ul{
+    display: inline-block;
+    padding: 0px;
+}
+li{
+    color: brown;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.img-links{
+    margin: 25px;
+}
+.links{
+    display: flex;
+    justify-content: flex-end;
+}
+/* .home-button{
+    width: 1p
+} */
+.li-links{
+    margin: 10px;
+}
+.profile-pic{
+    background: url('/static/images/background.jpg')  center ;
+    margin-top: 20px;
+}
+.p-pic{
+        border-radius: 165px;
+        height: 300px;
+        margin: 20px 490px;
+        box-shadow: rgb(99, 101, 102) 0px -12px 35px 15px;
+}
+.user-name{
+    display: flex;
+    justify-content: center;
+    font-family: 'Brush Script MT', cursive;
+    font-size: x-large;
+}
+h3{
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+}
+.characters{
+    display: inline;
+}
+.bio{
+        width: 200px;
+        height: 100px;
+}
+.char-pic{
+    border-radius: 15px;
+}
+img{
+    border-radius: 15px;
+}
+p.email{
+    display: none;
+}
+/* h3:hover{
+    background-color: cyan;
+    border-radius: 15px;
+    transition: 2s;
+} */
+h3{
+    animation: move-in-steps 8s infinite;
+    left: 0px;
+}
+.move-me {
+    display: inline-block;
+    padding: 5px;
+    color: rgb(109, 10, 10);
+    position: relative;
+    margin: 0 0 10px 0;
+    animation: move-in-steps 20s infinite;
+    font-size: large;
+    background: url('/static/images/main_info_background.jpg') no-repeat center ;
+    border-radius: 15px;
+}
+@keyframes move-in-steps {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 100%;
+    }
+}

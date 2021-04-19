@@ -1,0 +1,38 @@
+*{
+    font-family: cursive;
+}
+body{
+    background: url('/static/images/default_background.jpg') no-repeat center ;
+}
+img{
+    border-radius: 20px;
+    margin: 100px 490px 0 490px;
+}
+div{
+    display: inline;
+}
+.login{
+    display: flex;
+    justify-content: flex-end;
+}
+form{
+    display: flex;
+    justify-content: flex-end;
+}
+h2{
+    display: flex;
+    justify-content: center;
+    text-shadow: rgb(113, 116, 108) 10px 10px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.error-msg{
+    display: flex;
+    justify-content: flex-end;
+    color: crimson;
+}
+li{
+    color: crimson;
+}
