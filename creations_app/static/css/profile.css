@@ -31,6 +31,7 @@ a{
 .profile-pic{
     background: url('/static/images/background.jpg')  center ;
     margin-top: 20px;
+    border-radius: 12px;
 }
 .p-pic{
         border-radius: 165px;

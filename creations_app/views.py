@@ -32,7 +32,7 @@ def home_page(request):
         return redirect('/')
     posts = Character.objects.all()
 
-    paginator = Paginator(posts,1)
+    paginator = Paginator(posts, 1)
 
     page = request.GET.get('page')
 
@@ -90,6 +90,10 @@ def create_user(request):
             print('user made')
         return redirect('/')
 
+def profile_info(request):
+    if request.method == "POST":
+        profile_stuff = Profile.objects.create(my_profile = User.objects.get(id = request.session['user_id']), profile_banner = request.FILES['profile_banner'], instagram = request.POST['instagram'], facebook = request.POST['facebook'], youtube = request.POST['facebook'])
+    return redirect("/home")
 # creates characters
 def create_character(request):
     if request.method == "POST":

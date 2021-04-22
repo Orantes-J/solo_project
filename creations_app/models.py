@@ -31,6 +31,17 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     objects = UserManager()
 
+class Profile(models.Model):
+    my_profile = models.ForeignKey(User, related_name = "profile_obj", on_delete = models.CASCADE)
+    profile_banner = models.ImageField(upload_to= "static/images/")
+    instagram  = models.CharField(max_length = 70, default = None)
+    facebook  = models.CharField(max_length = 70, default = None)
+    youtube  = models.CharField(max_length = 70,default = None)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+
 class CharacterManager(models.Manager):
     def character_validator(self, postData):
         errors = {}
